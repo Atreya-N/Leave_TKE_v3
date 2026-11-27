@@ -16,8 +16,9 @@ def add_leave(employee_id, leave_type, start_date, end_date, reason):
     db.session.commit()
 
     return new_leave
-
-
+#-----
+# GET REQUESTS
+#-----
 def get_leave_by_id(leave_id):
     return db.session.get(LeaveRequest, leave_id)
 
@@ -29,6 +30,13 @@ def get_leaves_by_employee(employee_id):
         .order_by(LeaveRequest.id.desc())
         .all()
     )
+    
+# def get_leaves_by_employee(employee_id):
+#     obj = LeaveRequest.query.filter_by(employee_id=employee_id).order_by(LeaveRequest.id.desc()).all()
+#     print("Obj: ", obj)
+#     return (
+#         obj
+#     )
 
 
 def get_leaves_by_employees(employee_ids):
