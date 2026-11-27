@@ -1,0 +1,797 @@
+/* ==========================================
+   LEAVE DASHBOARD PAGE
+========================================== */
+
+
+/* ==========================================
+   RESET AND PAGE LAYOUT
+========================================== */
+
+.dashboard-body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #f4f7fb;
+    font-family: Arial, Helvetica, sans-serif;
+
+    box-sizing: border-box;
+}
+
+.dashboard-body *,
+.dashboard-body *::before,
+.dashboard-body *::after {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   TOP NAVIGATION BAR
+========================================== */
+
+.dashboard-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    min-height: 72px;
+    flex-shrink: 0;
+
+    padding: 0 40px;
+    margin: 0;
+
+    background-color: #142b49;
+    color: #ffffff;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* LOGO CONTAINER */
+
+.dashboard-navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* LOGO ICON */
+
+.dashboard-navbar-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 36px;
+    height: 36px;
+
+    background-color: #ffffff;
+    color: #142b49;
+
+    border-radius: 9px;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+
+/* CENTRED PORTAL TITLE */
+
+.navbar-title {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* RIGHT NAVBAR SECTION */
+
+.navbar-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    position: relative;
+    z-index: 20;
+}
+
+
+/* ==========================================
+   USER ICON AND DROPDOWN
+========================================== */
+
+.user-dropdown {
+    position: relative;
+}
+
+
+/* USER ICON */
+
+.user-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #263f60;
+    color: #ffffff;
+
+    cursor: pointer;
+    list-style: none;
+
+    transition: background-color 0.2s ease;
+}
+
+
+/* REMOVE DEFAULT DROPDOWN MARKER */
+
+.user-icon::-webkit-details-marker {
+    display: none;
+}
+
+
+/* USER ICON HOVER */
+
+.user-icon:hover {
+    background-color: #38577e;
+}
+
+
+/* USER ID DROPDOWN */
+
+.user-dropdown-content {
+    position: absolute;
+
+    top: 48px;
+    right: 0;
+
+    width: 170px;
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    background-color: #ffffff;
+    color: #142b49;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    z-index: 100;
+}
+
+
+/* DROPDOWN LABEL */
+
+.user-dropdown-content span {
+    font-size: 12px;
+    color: #718096;
+}
+
+
+/* DROPDOWN EMPLOYEE ID */
+
+.user-dropdown-content strong {
+    font-size: 15px;
+    color: #142b49;
+}
+
+
+/* ==========================================
+   LOGOUT BUTTON
+========================================== */
+
+.logout-btn {
+    display: inline-block;
+
+    padding: 9px 17px;
+
+    background-color: #dc3545;
+    color: #ffffff;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: background-color 0.2s ease;
+}
+
+
+/* LOGOUT HOVER */
+
+.logout-btn:hover {
+    background-color: #b52a37;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.dashboard-page {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 50px 24px 80px;
+
+    flex: 1;
+}
+
+
+/* ==========================================
+   WELCOME SECTION
+========================================== */
+
+.dashboard-welcome {
+    margin-bottom: 32px;
+}
+
+.dashboard-welcome h1 {
+    margin: 0 0 10px;
+
+    font-size: 34px;
+    font-weight: 800;
+
+    color: #142b49;
+}
+
+.dashboard-welcome p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #64748b;
+}
+
+
+/* ==========================================
+   DASHBOARD CARD
+========================================== */
+
+.dashboard-card {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(20, 43, 73, 0.05);
+}
+
+
+/* CARD HEADER */
+
+.dashboard-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 28px 30px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+/* CARD HEADING */
+
+.dashboard-card-header h2 {
+    margin: 0 0 6px;
+
+    color: #142b49;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* CARD DESCRIPTION */
+
+.dashboard-card-header p {
+    margin: 0;
+
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   APPLY BUTTON
+========================================== */
+
+.dashboard-apply-btn {
+    display: inline-block;
+
+    padding: 12px 20px;
+    border-radius: 9px;
+
+    background-color: #142b49;
+    color: #ffffff;
+
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    transition: background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* APPLY BUTTON HOVER */
+
+.dashboard-apply-btn:hover {
+    background-color: #23476f;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   DASHBOARD TABLE
+========================================== */
+
+.dashboard-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.dashboard-table {
+    width: 100%;
+
+    border-collapse: collapse;
+    text-align: left;
+
+    font-size: 13px;
+}
+
+
+/* TABLE HEADER BACKGROUND */
+
+.dashboard-table thead {
+    background-color: #f8fafc;
+}
+
+
+/* TABLE HEADINGS */
+
+.dashboard-table th {
+    padding: 18px 20px;
+
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+/* TABLE DATA */
+
+.dashboard-table td {
+    padding: 20px;
+
+    color: #334155;
+    vertical-align: middle;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+
+/* TABLE ROW HOVER */
+
+.dashboard-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+
+/* LAST ROW BORDER */
+
+.dashboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* REQUEST ID */
+
+.dashboard-table .request-id {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+
+/* REASON */
+
+.dashboard-table .reason-cell {
+    min-width: 160px;
+    max-width: 260px;
+
+    overflow-wrap: anywhere;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   MANAGER REMARKS
+========================================== */
+
+.dashboard-table .remarks-cell {
+    min-width: 180px;
+    max-width: 250px;
+
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.6;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/* WHEN NO REMARKS ARE AVAILABLE */
+
+.no-remarks {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   STATUS BADGES
+========================================== */
+
+.dashboard-status {
+    display: inline-block;
+
+    padding: 7px 13px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* PENDING */
+
+.dashboard-status.status-pending {
+    background-color: #fff7ed;
+    color: #c2410c;
+}
+
+
+/* APPROVED */
+
+.dashboard-status.status-approved {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+
+/* REJECTED */
+
+.dashboard-status.status-rejected {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* ==========================================
+   EMPTY DASHBOARD
+========================================== */
+
+.dashboard-table .dashboard-empty {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.dashboard-footer {
+    width: 100%;
+
+    padding: 22px 20px;
+
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+
+    text-align: center;
+}
+
+
+.dashboard-footer p {
+    margin: 0;
+
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    .dashboard-navbar {
+        min-height: 64px;
+        padding: 0 20px;
+    }
+
+    .dashboard-navbar-logo {
+        font-size: 18px;
+    }
+
+    .dashboard-navbar-icon {
+        width: 32px;
+        height: 32px;
+
+        font-size: 17px;
+    }
+
+    .dashboard-page {
+        padding: 35px 16px 60px;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 28px;
+    }
+
+    .dashboard-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 22px;
+    }
+
+    .dashboard-apply-btn {
+        width: 100%;
+    }
+
+    .dashboard-table {
+        min-width: 1050px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar-title {
+        display: none;
+    }
+
+    .navbar-actions {
+        gap: 8px;
+    }
+
+    .logout-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .dashboard-navbar {
+        padding: 0 14px;
+    }
+
+    .dashboard-navbar-logo {
+        gap: 8px;
+        font-size: 16px;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ==========================================
+   EDIT ACTION BUTTON
+========================================== */
+
+.action-cell {
+    text-align: center;
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    color: #3478c8;
+    background-color: #edf4fc;
+
+    border-radius: 6px;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+
+.edit-btn:hover {
+    background-color: #3478c8;
+    color: #ffffff;
+
+    transform: scale(1.08);
+}
+
+/* ==========================================
+   DELETE ACTION BUTTON
+========================================== */
+
+.delete-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 6px;
+
+    color: #dc3545;
+    background-color: #fcebed;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+
+    transform: scale(1.08);
+}
+
+/* No action available */
+.action-unavailable {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+/* ==========================================
+   TABLE ALIGNMENT FIX
+========================================== */
+
+/* Keep the table columns evenly distributed */
+.dashboard-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* Align all headings and data */
+.dashboard-table th,
+.dashboard-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 10px;
+}
+
+/* Set consistent column widths */
+.dashboard-table th:nth-child(1),
+.dashboard-table td:nth-child(1) {
+    width: 10%;
+}
+
+.dashboard-table th:nth-child(2),
+.dashboard-table td:nth-child(2) {
+    width: 13%;
+}
+
+.dashboard-table th:nth-child(3),
+.dashboard-table td:nth-child(3),
+.dashboard-table th:nth-child(4),
+.dashboard-table td:nth-child(4) {
+    width: 11%;
+}
+
+.dashboard-table th:nth-child(5),
+.dashboard-table td:nth-child(5) {
+    width: 16%;
+}
+
+.dashboard-table th:nth-child(6),
+.dashboard-table td:nth-child(6) {
+    width: 10%;
+}
+
+.dashboard-table th:nth-child(7),
+.dashboard-table td:nth-child(7) {
+    width: 19%;
+}
+
+.dashboard-table th:nth-child(8),
+.dashboard-table td:nth-child(8) {
+    width: 10%;
+}
+
+/* Center edit and delete buttons */
+.dashboard-table .action-cell {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.dashboard-table .action-cell .edit-btn,
+.dashboard-table .action-cell .delete-form {
+    vertical-align: middle;
+}
+
+/* Keep long text readable */
+.dashboard-table .reason-cell,
+.dashboard-table .remarks-cell {
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
